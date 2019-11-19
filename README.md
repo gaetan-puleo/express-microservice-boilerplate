@@ -11,12 +11,14 @@ Node js boilerplate for microservice
 
 # Run
 
-## Development
+## Development env
 
 Local
 ```
 yarn start
 ```
+
+or
 
 Docker 
 ```
@@ -24,7 +26,7 @@ docker build -t service .
 docker run -ti -p 1213:1213 service:latest
 ```
 
-##Test
+## Test env
 
 ```
 yarn test
