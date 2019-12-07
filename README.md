@@ -31,3 +31,8 @@ docker run -ti -p 1213:1213 service:latest
 ```
 yarn test
 ```
+
+
+## REST Documentation
+
+You can access the documentation to http://localhost:1213/api-docs or http://localhost:1213/api-spec

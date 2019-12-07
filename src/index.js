@@ -1,18 +1,28 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import './initModels';
 import bodyparser from 'body-parser';
 import helmet from 'helmet';
 import { errors } from 'celebrate';
+import './initModels';
+import expressOasGenerator from 'express-oas-generator';
 import router from './router';
+
 
 const app = express();
 
+if (process.env.NODE_ENV !== 'production') {
+  expressOasGenerator.handleResponses(app, {});
+}
 app.use(helmet());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-app.use('/', router);
-app.user(errors());
+app.use('/articles', router);
+
+app.use(errors());
+
+if (process.env.NODE_ENV !== 'production') {
+  expressOasGenerator.handleRequests();
+}
 mongoose.connect(process.env.DB_PATH, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
