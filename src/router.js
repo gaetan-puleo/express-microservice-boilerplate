@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import celebrate from 'celebrate';
+import {celebrate} from 'celebrate';
 import ArticleController from './controllers/articleController';
 import * as validate from './validations/articleSchemas';
 
